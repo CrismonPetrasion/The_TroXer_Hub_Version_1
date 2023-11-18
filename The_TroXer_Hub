@@ -59,17 +59,21 @@ local Window = Fluent:CreateWindow({
 --// Tabs
 
 local Tabs = {
+    Home = Window:AddTab({
+        Title = "Home",
+        Icon = "home"
+    }),
     Combat = Window:AddTab({
         Title = "Combat",
         Icon = "crosshair"
     }),
-    Misc = Window:AddTab({
-        Title = "Misc",
-        Icon = "settings"
-    }),
     Player = Window:AddTab({
         Title = "Player",
         Icon = "contact"
+    }),
+    Misc = Window:AddTab({
+        Title = "Misc",
+        Icon = "settings"
     }),
     Settings = Window:AddTab({
         Title = "Settings",
@@ -104,6 +108,16 @@ function Anti_Void()
 end
 
 Anti_Void()
+
+function Home()
+    Tabs.Main:AddButton({
+        Title = "Rejoin Server",
+        Description = "Rejoining Server",
+        Callback = function()
+            game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+        end
+    })
+end
 
 function Combat()
     local Toggle2 = Tabs.Combat:AddToggle("Slap", {
@@ -217,7 +231,67 @@ function Misc()
         end
     end)
 
-end
+    --[[local Toggle3 = Tabs.Misc:AddToggle("Fly", {
+        Title = "Fly", 
+        Default = false
+    })]]
+
+    --[[Toggle3:OnChanged(function()
+        local Value = Options.Fly.Value
+
+        local Ctrl = {f = 0, b = 0, l = 0, r = 0}
+        local LastCtrl = {f = 0, b = 0, l = 0, r = 0}
+        
+        local Flying = true
+
+        local Speed = 1
+        local MaxSpeed = 5
+
+        local BodyGyro = Instance.new("BodyGyro", Character.Torso)
+        BodyGyro.P = 9e4
+        BodyGyro.MaxTorque = Vector3.new(9e9,9e9,9e9)
+
+        local BodyVelocity = Instance.new("BodyVelocity", Character.Torso)
+        BodyVelocity.Velocity = Vector3.new(0,0.1,0)
+        BodyVelocity.MaxForce = Vector3.new(9e9,9e9,9e9)
+
+        repeat
+            task.wait()
+        until Character:FindFirstChild("Humanoid")
+
+        while Value do
+            repeat task.wait()
+                Humanoid.PlatformStand = true
+                if Ctrl.l + Ctrl.r ~= 0 or Ctrl.f + Ctrl.b ~= 0 then
+                    Speed = Speed
+                    if Speed > MaxSpeed then
+                        Speed = MaxSpeed
+                    end
+                elseif not (Ctrl.l + Ctrl.r ~= 0 or Ctrl.f + Ctrl.b ~= 0) and Speed ~= 0 then
+                    Speed = Speed
+                    if Speed < 0 then
+                        Speed = 1
+                    end
+                end
+                if (Ctrl.l + Ctrl.r) ~= 0 or (Ctrl.f + Ctrl.b) ~= 0 then
+                    bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (Ctrl.f+Ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(Ctrl.l+Ctrl.r,(Ctrl.f+Ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*Speed
+                    LastCtrl = {f = Ctrl.f, b = Ctrl.b, l = Ctrl.l, r = Ctrl.r}
+                elseif (Ctrl.l + Ctrl.r) == 0 and (Ctrl.f + Ctrl.b) == 0 and Speed ~= 0 then
+                    BodyVelocity.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (LastCtrl.f+LastCtrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(LastCtrl.l+LastCtrl.r,(LastCtrl.f+LastCtrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*Speed
+                else
+                    BodyVelocity.velocity = Vector3.new(0,0.1,0)
+                end
+                BodyGyro.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((Ctrl.f+Ctrl.b)*50*Speed/MaxSpeed),0,0)
+            until Value == false
+            Ctrl = {f = 0, b = 0, l = 0, r = 0}
+            LastCtrl = {f = 0, b = 0, l = 0, r = 0}
+            Speed = 0
+            BodyGyro:Destroy()
+            BodyVelocity:Destroy()
+            Humanoid.PlatformStand = false
+        end
+    end)
+end--]]
 
 function Player()
     local Slider = Tabs.Player:AddSlider("Slider", {
@@ -254,6 +328,7 @@ function Player()
 end
 
 do
+    Home()
     Combat()
     Misc()
     Player()
