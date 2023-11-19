@@ -774,7 +774,7 @@ end
 --// Task
 
 do
-    if game.PlaceId == 13772394625 then
+    if game.PlaceId == 6403373529 then
         Home()
         Combat()
         Misc()
