@@ -1,20 +1,4 @@
---// Variables
-
-local LocalPlayer = game:GetService("Players").LocalPlayer
-local Character = LocalPlayer.Character
-local Humanoid = Character:WaitForChild("Humanoid")
-
---// Repeat Task
-
-repeat
-    task.wait()
-until game:IsLoaded()
-
---// Library
-
-local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
-local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
-local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+--// Bypass
 
 if game.PlaceId == 11520107397 or game.PlaceId == 6403373529 or game.PlaceId == 9015014224 then
     local Bypass;
@@ -44,10 +28,30 @@ elseif game.PlaceId == 9431156611 then
     end)
 end
 
+--// Variables
+
+local LocalPlayer = game:GetService("Players").LocalPlayer
+local Character = LocalPlayer.Character
+local Humanoid = Character:WaitForChild("Humanoid")
+
+--// Repeat Task
+
+repeat
+    task.wait()
+until game:IsLoaded()
+
+--// Library
+
+local Fluent = loadstring(game:HttpGet("https://github.com/dawid-scripts/Fluent/releases/latest/download/main.lua"))()
+local SaveManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/SaveManager.lua"))()
+local InterfaceManager = loadstring(game:HttpGet("https://raw.githubusercontent.com/dawid-scripts/Fluent/master/Addons/InterfaceManager.lua"))()
+
+local Options = Fluent.Options
+
 --// Window
 
 local Window = Fluent:CreateWindow({
-    Title = "TroXer Hub | Slap Battles Version: " .. Fluent.Version,
+    Title = "TroXer Hub | Slap Royale " .. Fluent.Version,
     SubTitle = "By ArteeSo",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
@@ -65,15 +69,15 @@ local Tabs = {
     }),
     Combat = Window:AddTab({
         Title = "Combat",
-        Icon = "crosshair"
-    }),
-    Player = Window:AddTab({
-        Title = "Player",
-        Icon = "contact"
+        Icon = "swords"
     }),
     Misc = Window:AddTab({
         Title = "Misc",
-        Icon = "settings"
+        Icon = "wrench"
+    }),
+    Player = Window:AddTab({
+        Title = "Player",
+        Icon = "user"
     }),
     Settings = Window:AddTab({
         Title = "Settings",
@@ -81,11 +85,7 @@ local Tabs = {
     }),
 }
 
---// Options
-
-local Options = Fluent.Options
-
---// Notify
+--// Functions
 
 function Notify(Title, Content, SubContent, Duration)
     Fluent:Notify({
@@ -96,205 +96,621 @@ function Notify(Title, Content, SubContent, Duration)
     })
 end
 
---// Functions
-
-function Anti_Void()
-    local Part = Instance.new("Part", workspace)
-    Part.Name = "AntiVoid"
-    Part.CFrame = CFrame.new(0,-7.5,0)
-    Part.Size = Vector3.new(1000,0,1000)
-    Part.Anchored = true
-    Part.Transparency = 0.8
+function Furry()
+    local Furry = [[
+        ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡀⠀⠀⠀⠀⠀⠀⠀⢀⣠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠁⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⢶⣿⢃⣠⣴⣶⣶⣿⣛⢯⣹⣾⠁⠀⠀⠀⠀⠀⢀⣀⣤⣴⣶⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⠀⠀⠀⠀⠀⠀⠐⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⣿⣿⣿⣻⣾⣿⣞⣯⣷⣽⣾⣿⣁⣀⣠⢤⡶⣶⠿⣻⣶⣟⡿⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠄⠀⠀⠀⠀⠀⠐⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⣟⣯⣿⣶⣯⣿⣿⣿⡁⠀⣴⠿⣟⣿⣟⣿⣻⢷⢯⣞⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⢈⡇⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⡶⢒⣖⣲⡶⢶⡖⣶⣒⢶⡲⣞⣫⠭⣭⣭⣽⣭⣯⣽⣿⣿⣿⣿⣿⣿⣿⠿⢿⡿⠿⠿⠿⣌⠿⢿⣿⣿⣿⣿⡾⣽⢯⣟⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠀⠘⡀⠀⠀⠀⠐⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣯⣛⢧⣛⢧⣛⡶⣹⣎⢷⣝⡮⣟⢷⡾⣹⢯⡟⠉⠉⠛⢿⣿⣿⣯⣟⣿⣫⣽⡿⣃⣔⣬⣿⣷⣯⣿⣿⣿⣿⣽⣻⣾⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣟⡾⣭⡟⣾⣹⢗⣾⣫⢾⡽⣽⢾⡽⢯⡟⠀⠀⠀⢀⢈⣿⣿⣿⣿⣿⠿⢻⣷⣼⣿⣿⣟⣿⣟⣿⣿⣿⣿⣿⣿⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠂⠀⠀⠐⠀⠀⠀⠠⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠙⣿⣷⣿⣷⣯⣟⡾⣽⣳⢿⡽⣾⡽⡟⠀⠀⢀⣰⠞⠟⠙⢻⣷⣿⣸⣷⣾⣟⣺⣽⣟⣻⣿⣿⣿⣿⣿⣿⣿⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠻⣿⣿⣿⣿⣿⣷⣯⣿⣽⣳⢿⠃⠀⠀⢀⠀⢠⣤⣦⣄⣇⠉⠛⠛⢻⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠟⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠀⠀⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠻⣿⣿⣿⣿⣿⣉⠉⠉⠻⠀⠀⠠⢀⣾⢿⠋⢁⣿⣿⠀⠀⠀⠀⣿⣧⠙⢿⣹⣏⢠⣛⠟⠁⠀⠀⢀⣴⣷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠛⠿⣿⣿⣿⣓⣈⣰⣦⣤⣀⣼⠋⠀⠀⢭⣽⣿⡇⠀⣀⣀⣿⣿⡇⡸⣿⣿⡤⠉⠒⠤⣀⠀⠠⡄⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⢹⠏⠀⠛⣞⣧⣾⠍⠢⣀⠀⠈⠻⠟⣇⢉⣡⡶⣭⠯⡀⠐⠛⠙⢇⠀⠐⢲⠏⠀⠀⠈⠲⠞⠀⠀⠀⠀⠀⠀⠐⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡴⠁⢀⠄⠂⢸⠛⠁⣠⣲⡆⢔⠾⠋⠀⠈⠢⣉⠀⢀⣀⣈⡆⠀⠀⢸⣀⠔⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠚⠤⣌⡁⠀⠀⠈⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠹⣿⣿⣿⡿⠀⠀⣜⣩⠟⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠼⣛⡉⠀⠀⠓⢄⡀⠀⠀⠀⠀⠀⠀⢀⡀⠀⠀⡹⠋⠀⣠⠞⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠉⠐⠒⠚⣿⣶⠦⣄⣀⡀⠘⠿⠽⠶⢾⣷⣀⠖⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣠⣀⡀⣀⣀⣠⡿⠍⣛⠻⡿⠿⣟⣲⣶⣶⡶⠿⣿⣖⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⣠⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠼⠛⢻⠿⠻⢿⣿⣷⣿⣶⣆⠬⡯⣑⣿⣿⣿⣿⣹⣍⣧⣾⠈⠉⠉⠒⠒⠠⣄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢠⠁⢡⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠋⠀⠀⠐⠒⠠⣔⠁⠀⠉⣿⣿⣿⢛⡖⠾⠿⢿⡿⠿⣾⠟⠁⠀⠀⠀⠀⠀⠸⠀⠱⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⢠⠃⠀⠀⢢⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⡅⠀⠀⠀⠀⠀⠀⠀⠉⠒⠄⠘⢿⣿⠇⠈⠁⠒⠺⣤⣢⡼⠀⠀⠀⠀⠀⠀⠀⠸⠀⠀⠘⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠣⡀⠀⠀⡼⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠹⡄⠐⠒⠠⠤⠀⣀⠀⠀⠀⠀⠈⣏⠀⠀⠀⠀⠀⠈⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⢆⠀⠀⠙⣆⠀⠀⠀⠀⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠑⣄⠜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡰⠁⠀⠘⣆⠀⠀⠀⠀⠀⠉⠑⠢⡀⢀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⠀⠀⠀⠈⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡰⠁⠀⠀⠀⠈⢣⡀⠠⢄⣀⠀⠀⠀⢠⠞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠄⠀⠀⠀⠀⢣⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⢄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⠧⣀⣀⠀⢀⡤⠋⠀⠀⠀⠀⠈⢁⠒⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡆⠀⢀⣠⢾⡍⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠆⠈⢂⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠞⣻⡿⠏⠀⠀⠀⠐⠢⠄⢀⡀⣰⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡷⠖⠋⣁⡼⣇⠀⠀⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⡀⢀⡎⠀⠀⠀⢳⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⡔⠍⠀⠀⠈⠢⣀⠀⠀⠀⡰⢠⡇⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣇⡴⠋⠁⠁⢹⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠑⢄⠀⡴⠁⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⢧⠄⠂⡄⠀⠀⠀⠀⠁⠢⢴⣁⡼⠀⠀⠀⠈⠑⠂⠀⠤⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣧⣀⠤⠖⠉⠀⢧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠇⢠⠀⠀⠀⠑⠤⡀⠀⠀⡐⠁⢰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡏⠀⠀⠀⠀⠀⠘⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⠈⢆⠀⠀⠀⠀⠀⢑⠞⠤⣠⣇⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⣀⣀⣀⡠⠤⢤⢤⠴⠃⠀⡀⠔⠊⠀⠠⢹⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢺⠀⠀⠀⠣⡀⠀⠀⡤⠃⠠⣼⠃⢳⠈⠉⠉⣍⠉⠉⠉⠉⠉⠉⠉⠉⠉⠁⠀⠀⠀⠀⠀⡜⢸⢀⡔⠉⠀⢀⡠⢔⠊⠉⠻⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡦⡀⠀⠀⠈⠑⠺⠤⣴⠟⠃⠀⠸⡆⠐⠀⢸⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⠀⠀⠀⢀⠃⢸⡃⣇⠀⡰⠟⠂⠁⠀⠀⠀⠙⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢄⠀⠀⠀⠈⠺⠦⣄⣠⠤⠴⠊⠉⠀⠀⠀⡼⠁⠀⠐⢸⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⢘⠀⠀⠀⢸⠀⢸⣇⠞⠉⠀⠀⠀⠀⢀⡠⠐⠀⠈⢣⠀⠀⠀⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡜⠈⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⢿⣁⠀⠈⢀⠏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡈⢀⠀⠀⠰⠀⢸⠹⡄⠀⠀⢀⡠⠒⠁⠀⠀⠀⡠⠀⢳⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢜⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⠋⠀⠈⠉⠓⠦⠄⣀⡀⠀⠀⠀⠀⠀⠀⠀⠀⣿⡯⠀⠀⠀⣆⣼⡆⢙⣤⡐⠁⠀⠀⠀⡠⠔⠉⠀⠀⠀⠹⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢂⡠⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⢾⠁⠉⠢⢄⡀⠀⠀⠀⠀⠈⠉⠁⠐⠒⠒⠒⠒⠒⠚⠓⠀⠈⠉⠀⠀⢧⠀⠘⢷⣀⡠⠔⠉⠀⠀⠀⠀⢀⠠⠀⠱⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠚⡱⠁⠀⠀⠀⠀⠈⠁⠒⠠⠤⢀⣀⣀⢀⠀⡀⢀⢀⡀⠀⠀⣀⡠⠔⠒⠂⠙⣆⠀⠀⠙⣦⠀⠀⠀⢀⠄⠊⠁⠀⠀⡀⠘⣄⠀⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠜⢡⠊⠀⠀⠀⠀⠀⠀⠀⣰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⠰⡄⠀⠹⡄⠀⠀⠀⠳⡄⠐⠁⠀⠀⢀⠔⠉⠀⠀⠈⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠋⡔⠁⠀⠀⠀⠀⠀⠀⠀⣰⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⣷⠀⠀⠀⠀⠀⠀⠀⠀⣷⠀⠀⠹⡄⠀⠀⠀⠈⢷⣀⡠⠚⠁⠀⠀⢀⠄⠢⡀⠣⣀⠀⠀⠀⢀⣀⣤⣤⣄⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⢀⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡰⢁⠎⠀⠀⠀⠀⠀⠀⠀⠀⢰⢹⠀⠀⠀⠀⠀⠀⠀⠀⠀⡄⣹⡄⠀⠀⠀⠀⠀⠀⠀⡇⡆⠀⠀⢳⠀⠀⠀⠀⠈⠙⢵⠀⠀⢀⠕⢁⠖⡠⠁⠀⠉⡖⠚⠉⠩⢿⡟⣿⣭⣷⣄⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⡘⠘⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡘⢡⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⡆⡎⡘⠀⠀⠀⠀⠀⠀⠀⠀⠀⣜⢣⠀⠀⠀⠀⠀⠀⠀⢹⠸⡀⠀⠐⢇⠀⠀⠀⠀⠀⠀⠑⢶⡁⠀⢸⡔⠁⠀⢠⠃⢁⠀⠀⠀⠒⣿⡽⣶⢾⣿⣷⣄⠀
+⠀⠀⠀⠀⠀⠀⢰⠇⠀⠸⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢰⢣⠇⡄⠀⠀⠀⠀⠀⠀⠀⠀⢸⢠⠇⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⢸⠀⠀⠀⠀⠀⠀⠀⠸⠀⡇⠀⠀⠸⡆⠀⠀⠀⠀⠀⠀⠘⢿⣦⣾⠀⠀⠀⡇⠀⢸⠀⠀⠀⠀⢸⣿⣷⣿⡿⣿⣿⣧
+⠀⠀⠀⠀⠀⠀⢎⠀⠀⠀⡷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠃⡌⡘⠀⠀⠀⠀⠀⠀⠀⠀⠀⡸⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⡇⠀⠀⠄⠀⠀⠀⠀⡇⢸⠀⠀⠀⢳⠀⠀⠀⠀⠀⠀⠀⠀⠹⣴⠀⠀⡜⠀⠀⢘⣲⣄⣀⣈⣸⠿⢿⣯⣿⣽⣞⣿
+⠀⠀⠀⠀⠀⠀⠀⢣⠀⡴⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠏⡸⢠⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⡸⢰⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡀⡇⠀⠀⠀⠀⠀⠀⠀⢸⠈⡇⠀⠀⠈⢇⠀⠀⠀⠀⠀⠀⠀⠀⠸⠓⣜⠂⠀⣴⣿⣿⣷⣾⣯⣿⣦⠈⠉⠛⠻⠞⠉
+⠀⠀⠀⠀⠀⠀⠀⠀⠙⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣄⡇⢜⡀⠤⣀⠀⠀⠀⠀⠀⠀⠀⡇⢓⠨⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⡀⣇⠀⠀⠀⠀⠀⠀⠀⠈⡆⢥⠀⠀⠀⠘⡆⠀⠀⠀⠀⠀⠀⠀⠨⠀⠀⠓⢦⢿⣿⣿⣾⣷⣿⣿⡿⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠦⣀⠈⠑⠀⠦⠤⠄⠀⠀⠀⠀⣇⣽⠀⠀⠄⠀⠀⠀⠀⠀⠀⠒⠈⢸⠂⡏⠀⠠⠀⠀⠀⠀⠐⠀⠇⢸⠄⣀⣀⠀⠘⡄⠀⠀⠀⠀⠀⠀⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠒⣶⠤⠤⠤⠤⠤⠶⠖⠛⠉⠲⠤⣄⣀⣀⣀⢀⣀⣀⣤⣤⣼⣿⣧⣈⠉⠐⠒⠂⠀⠀⠀⢸⡻⠦⠤⣤⠤⠖⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣹⡀⠀⢠⣀⣤⠴⠖⠛⠋⠉⠉⠉⣩⡥⠬⠥⣬⣉⣹⡏⠉⠉⠉⠉⠉⠉⠒⠒⠒⠚⠿⠥⢤⣀⡀⡏⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠩⡗⠚⠉⣀⠠⠤⠒⠒⠀⠀⠀⠉⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠉⠉⠉⠉⠁⠉⠁⠀⠀⠀⠒⠤⢩⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢳⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠂⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡗⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢳⠐⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⠀⠀⠀⠀⠐⠀⠀⠀⠀⠀⠀⠀⠀⢰⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣤⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⢀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠉⡄⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠛⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠠⡟⡆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠃⠀⠘⡄⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣰⠋⢸⢧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⡀⢨⡇⠀⠀⠀⠀⠐⠀⠀⠀⠀⠀⠀⠀⢈⡰⢯⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⡇⠀⠀⠀⢹⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠴⠋⠀⢀⣸⣄⠇⠈⠢⢄⠀⠀⠀⠀⠀⠀⠀⠀⠠⠁⢸⢧⠀⠀⠀⠀⠀⠀⡀⠀⠀⢀⠔⠁⠊⠁⠈⢣⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠐⡄⠀⣠⠋⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠠⠀⠀⢠⡤⠖⠋⠁⠀⠀⠠⢀⡿⠉⠙⠢⠤⠀⣉⠒⠤⣀⠀⠀⠀⠀⠀⠀⡿⢸⡀⠀⠀⠀⠀⠀⡀⠠⢖⠍⠀⠀⠀⠀⠀⠀⠻⡄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣤⠃⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣀⠤⠓⠋⠀⠀⠀⡀⠤⠀⠂⣠⠞⠀⠀⠀⠀⠀⠀⠀⠉⠀⠀⠁⠀⠀⠀⠀⢠⠇⣈⣇⠀⠀⠀⠀⠁⠀⠀⠀⠀⠀⠀⢀⠠⠂⠀⡄⠹⡀⠀⠀⠀⠀⠂⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⡠⠖⠋⠀⠀⠀⠀⠀⠈⢀⠀⠠⠐⡴⢡⠂⠁⠂⠤⣤⣀⠀⠀⠀⠈⠢⠀⠀⠀⠀⠀⡼⠀⣼⢹⡀⠀⠀⠀⠀⢀⡠⠤⠏⠁⠀⠀⠀⠀⠀⣰⠀⢷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣠⠔⠋⠀⠀⠀⠀⠀⠀⡀⠁⠀⠂⠀⠄⡜⢀⠂⠀⠀⠀⠀⠀⠀⠀⠀⠉⠂⠲⡄⠤⠀⢠⡼⠁⢀⡟⠀⣧⠐⠒⠒⠽⠋⠁⠀⠀⠀⠀⡠⠤⠎⠁⠁⠀⠸⡀⠀⠀⠀⡀⠀⡠⠊⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⢠⠞⠁⠀⠀⠀⠀⠀⠀⠀⠄⠀⡀⠁⢀⠂⡸⠀⠀⠈⠒⢤⡀⠀⠀⠀⠀⠀⠀⠀⢠⠃⠀⢀⡾⠁⣾⣸⠁⠀⡟⡆⠀⠀⡠⠖⠒⠚⠉⠉⠀⠀⠀⠀⠀⠀⠀⢀⡇⠀⠀⠀⢀⠝⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⡴⠁⠀⠀⠀⠀⠀⠀⠀⠀⠄⠀⠀⠀⠐⠀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠉⠓⠢⢤⣀⢠⣃⣀⢀⡞⢁⡼⠛⠃⠀⣱⠁⢻⠈⠁⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡠⠒⠀⡇⠀⠀⡠⠋⠈⠀⠀⢀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢠⣎⣠⡶⠗⠀⠀⠀⠀⠀⠀⠄⠀⠀⠀⠁⠠⠈⢰⡇⠉⠂⢄⡀⠀⠀⠀⠀⠀⠀⠀⢁⠂⠀⢀⡟⠠⠞⠀⠠⡄⣱⠃⠀⠈⣇⣀⣀⡤⠆⠂⠂⠂⠂⠒⠉⠁⠁⠀⠀⠀⡇⢀⠎⠀⠀⠀⠀⠀⠁⠀⢠⢦⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⢚⣷⡾⠁⠀⠀⠀⠀⠀⠀⢀⠀⠀⠁⠠⠈⠀⠄⢸⣇⠀⠀⠀⠀⠁⠂⠠⢀⠀⠀⠀⠎⠀⢀⡞⠀⠠⠀⠂⣽⣻⠃⠀⠀⠀⠘⣆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⡠⠚⠀⣧⠀⠀⠀⠀⠀⠀⠀⠀⢠⠃⠀⢣⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⣠⢾⣿⠇⠀⠀⠀⠀⠀⠀⢀⠀⠀⠈⠀⠄⠐⠀⠠⢸⠁⠑⠤⢀⣀⠀⠀⠀⠀⠀⠀⠉⠀⢀⡏⠀⠐⠀⣡⢾⡟⠁⠀⠀⠀⠀⠀⠻⡄⠀⠀⠀⠀⣀⡤⠔⠋⠉⠀⠀⠀⠀⡟⠀⠀⠀⠀⠀⠀⠀⠀⠘⡄⢠⠎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⣰⠃⣯⢾⠀⢀⣴⡟⠀⠀⠀⠀⡀⠈⠀⠄⠀⠂⠈⢀⢸⠀⠀⠀⠀⠀⠀⠁⠑⠢⣀⡀⠀⢠⠟⠀⣈⣤⠞⠁⠈⠀⠀⠀⠀⠀⠀⠀⠀⢳⠐⠒⠊⠉⠀⠀⠀⠀⠀⠀⠀⢀⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⣰⠃⠀⣷⣿⣴⣟⡿⠁⠀⠀⣀⣁⠀⠀⠐⠀⡈⠀⢁⠀⣼⠄⣀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢳⣎⣠⠖⠋⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢧⠀⠀⠀⠀⢀⣀⣀⡀⠤⠂⠁⢠⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⢠⠃⠀⠀⠉⢁⣼⡿⢶⣞⡿⣿⣿⡏⠀⠈⡀⠐⠀⢈⠀⣼⢹⠦⠀⠁⠂⠤⣀⠀⠀⠀⠀⠀⡾⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠚⣏⠁⠉⠉⠀⠀⠀⠀⠀⠀⠀⣸⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⡞⠀⠀⠀⠀⠞⠛⠛⠉⢁⣿⡿⣿⠁⣀⡐⢂⠄⢈⡆⢠⠇⣼⠀⠀⠀⠀⠀⠀⠀⠉⠐⠀⡼⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠸⡄⠀⠀⠀⠀⠀⣀⡤⠄⠊⠹⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢰⠁⠀⠀⠀⠀⠀⠀⠀⠀⠈⣿⣿⣿⣼⡟⠁⢃⣤⣿⣷⠋⠐⣿⠈⠁⠀⠀⠀⠀⠀⠀⠀⡸⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⡒⠋⠉⠉⠉⠁⠀⠀⠀⢀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣾⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⡿⢋⣿⢁⣴⣾⣿⣿⣟⣠⠟⡏⠀⠀⠀⠀⠀⠀⠀⠀⢠⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢣⠀⠀⠀⠀⠀⠀⢀⡀⠠⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⡏⠀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⡰⠘⣯⣼⣿⠟⣿⣿⠟⠁⣸⠁⠒⠠⢀⡀⠀⠠⠈⢀⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⣸⡧⠖⠒⠒⠁⠉⠁⠀⠀⢻⠄⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⣧⠀⣴⡇⠀⢰⠀⠀⠀⢀⠀⡜⠀⠀⠹⡏⢁⣴⠛⠁⠀⢠⠇⠀⠀⠀⠀⠀⠜⠁⠀⡜⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠰⣧⢹⣒⣒⠶⠶⢦⡤⠝⠛⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⢹⠞⢠⡁⠀⢷⠀⠀⢀⠎⠸⠀⠀⠀⢀⣴⠋⠁⠀⠀⢀⠏⠈⠉⠀⠀⢀⣀⠀⠤⠐⢧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡼⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢆⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠈⠸⡇⠀⠈⠆⢀⠇⠀⠁⠀⣼⢠⡞⡁⠀⠀⠀⢀⠏⠀⠀⠀⠚⠛⠂⠀⠀⠀⢀⡞⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡇⣀⠀⠀⢀⣀⣀⣀⣀⠠⠄⣾⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠹⡄⠀⠈⠚⠂⠀⠀⣴⣿⡎⠀⠀⠀⠀⠀⡞⠀⠀⠐⠒⠐⠀⠀⠀⠀⠈⠀⢧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢀⠧⠀⠀⠀⠀⠀⠀⠀⠀⠀⡂⢹⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠙⢄⠀⠀⠀⠀⠀⡇⠈⠀⠀⠀⠀⠀⠈⢳⠀⠀⠀⠀⢀⠀⠀⠤⠄⠒⠂⠨⣇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣸⠈⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢹⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠙⠢⢤⣀⡀⢳⢀⣀⣠⠤⠤⠤⠤⠬⡇⠒⠈⠉⠀⠀⠀⠀⠀⠀⢀⠀⠘⣆⢀⣀⠀⡀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢠⠇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡎⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⣠⠤⠂⠈⠙⠁⡀⠄⢂⠐⡀⠆⠐⣻⠀⠀⢀⡀⠄⠐⠂⠉⢀⣀⣀⣠⣼⣦⣤⣂⠐⠐⡈⠐⢂⠁⠒⠠⢁⠂⠌⢉⠑⢦⠀⣠⠤⠴⠾⢲⠶⠶⠤⠤⢤⣀⣀⠒⠀⠤⠀⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠳⠤⣌⣌⣠⠁⡐⠈⠄⢂⠐⡈⠄⣹⡖⠀⣀⣠⣦⣶⣿⣿⣭⣽⣶⣷⣽⣶⣬⣭⡳⣥⠀⠡⠀⠌⠠⢁⠂⠌⡀⠂⠌⢀⣾⣥⣶⣶⣿⣿⢿⡿⣿⣿⣿⣿⣮⣽⣿⣶⣄⡇⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡤⠌⠐⡀⢂⠐⠠⢈⣷⣿⣿⣿⣟⡿⣽⣻⣿⣟⡷⣯⣟⣿⣿⣟⣿⣿⠇⠠⢁⠈⡐⠠⠈⠄⠠⢁⠂⣼⣿⣯⣷⣻⣿⣽⢯⣟⣷⣿⣟⣾⣽⣻⣟⡿⣿⡧⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⠦⣌⡐⢀⠂⡈⠐⡀⠻⣿⣿⣿⣾⣿⣿⣽⣯⣿⣟⣷⣿⣾⣿⣿⣿⡿⠀⡁⠂⡐⠠⠁⠌⠠⠁⠂⠄⡈⢿⣿⣿⣿⣿⣿⣿⣿⣾⣿⣿⣾⣷⣿⣾⣿⣿⠃⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠑⠒⠃⠐⠤⠀⠙⠛⠿⠿⣿⣿⣿⣿⠿⠿⠟⠛⢋⠉⡀⠄⢂⠐⠠⠐⠠⠁⠌⠠⠁⠌⠠⠐⡀⠈⠉⠛⠛⠟⠻⠟⠟⠻⠛⠛⠛⠛⠉⠉⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠂⠀⠒⠐⠒⠂⠂⠂⠑⠀⠃⠈⠀⠃⠈⠀⠁⠀⠁⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀
+    ]]
 end
 
-Anti_Void()
-
 function Home()
-    Tabs.Main:AddButton({
-        Title = "Rejoin Server",
-        Description = "Rejoining Server",
+    local DS = Tabs.Home:AddButton({
+        Title = "Discord Server",
+        Description = "Copying Discord Server",
         Callback = function()
-            game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
-        end
+            setclipboard("https://discord.gg/4MEFskRUhy")
+        end,
+    })
+
+    local RJ = Tabs.Home:AddButton({
+        Title = "Rejoin Server",
+        Description = "Rejoin Server what you are in!",
+        Callback = function()
+            game:GetService("TeleportService"):TeleportToPlaceInstance(game.PlaceId, game.JobId, LocalPlayer)
+        end,
+    })
+
+    local IY = Tabs.Home:AddButton({
+        Title = "Infinite Yield",
+        Description = "Paste Infinite Yield",
+        Callback = function()
+            loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+        end,
     })
 end
 
 function Combat()
-    local Toggle2 = Tabs.Combat:AddToggle("Slap", {
+    local SA = Tabs.Combat:AddToggle("Slap", {
         Title = "Slap Aura", 
-        Default = false
+        Default = false 
     })
 
-    Toggle2:OnChanged(function()
+    SA:OnChanged(function()
         local Value = Options.Slap.Value
+
         while Value do
-            for Index, Player in pairs(game.Players:GetChildren()) do
-                if Player ~= game.Players.LocalPlayer and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and game.Players.LocalPlayer.Character then
-                    if Player.Character:FindFirstChild("entered") and Player.Character:FindFirstChild("HumanoidRootPart") then
-                        Magnitude = (Character.HumanoidRootPart.Position - Player.Character.HumanoidRootPart.Position).Magnitude
-                        if Magnitude <= 25 then
-                            game:GetService("ReplicatedStorage").KSHit:FireServer(Player.Character:WaitForChild("HumanoidRootPart"))
+            for i,v in pairs(game.Players:GetChildren()) do
+                if v ~= LocalPlayer and v.Character then
+                    if v.Character:FindFirstChild("Dead") == nil and v.Character:FindFirstChild("HumanoidRootPart") then
+                        Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - v.Character.HumanoidRootPart.Position).Magnitude
+                        if 25 >= Magnitude then
+                            game.ReplicatedStorage.Events.Slap:FireServer(v.Character:WaitForChild("HumanoidRootPart"))
                         end
                     end
                 end
             end
-            task.wait(1.1)
-        end
-    end)
-
-    local Toggle3 = Tabs.Combat:AddToggle("Rojo", {
-        Title = "Rojo Spam", 
-        Default = false
-    })
-
-    Toggle3:OnChanged(function()
-        local Value = Options.Rojo.Value
-        while Value do
-            game:GetService("ReplicatedStorage"):WaitForChild("RojoAbility"):FireServer("Release", {Character.HumanoidRootPart.CFrame})
             task.wait()
         end
     end)
 
-    local Input = Tabs.Combat:AddInput("Input", {
-        Title = "Make Person Use Rojo",
-        Default = "Username",
-        Placeholder = "Me",
-        Numeric = false, -- Only allows numbers
-        Finished = false, -- Only calls callback when you press enter
-        Callback = function(Value)
-            if Value == "Me" or Value == "me" or Value == "Username" or Value == "" then
-                local Person = LocalPlayer.Name
+    local GAI = Tabs.Combat:AddButton({
+        Title = "Get All Items",
+        Description = "Use after bus spawns!",
+        Callback = function()
+            if LocalPlayer.Character:WaitForChild("inMatch").Value == true then
+                for i, v in ipairs(game.Workspace:GetChildren()) do
+                    if v.ClassName == "Tool" then
+                        Humanoid:EquipTool(v)
+                    end
+                end
+
+                repeat
+                    task.wait()
+                until game.Workspace:FindFirstChildWhichIsA("Tool") == nil
+                Humanoid:UnequipTools()
+                task.wait()
             else
-                Person = Value
+                Notify("Error", "Get All Items", "Match hasn't started yet!, Error!", 1)
             end
-        end
+        end,
     })
 
-    local Toggle4 = Tabs.Combat:AddToggle("Null", {
-        Title = "Null Spam", 
-        Default = false
+    local IP = Tabs.Combat:AddButton({
+        Title = "Inf 250 Power! (Needs 2 True Powers) (Use before other items)",
+        Description = "Use when you have 2 true powers",
+        Callback = function()
+            for i = 1,2 do
+                Humanoid:EquipTool(LocalPlayer.Backpack["True Power"])
+                Character["True Power"]:Activate()
+            end
+        end,
     })
 
-    Toggle4:OnChanged(function()
-        local Value = Options.Null.Value
-        while Value do
-            game:GetService("ReplicatedStorage").NullAbility:FireServer()
-            task.wait()
-        end
-    end)
-
-    local Toggle5 = Tabs.Combat:AddToggle("Rhythm", {
-        Title = "Rhythm Spam", 
-        Default = false
+    local UPI = Tabs.Combat:AddButton({
+        Title = "Use Permament Items",
+        Description = "Use after bus spawns!",
+        Callback = function()
+            for i, v in pairs(LocalPlayer.Backpack:GetChildren()) do
+                if v.Name == "Bull's essence" or v.Name == "Potion of Strength" or v.Name == "Boba" or v.Name == "Speed Potion" or v.Name == "Frog Potion" or v.Name == "Strength Brew" or v.Name == "Frog Brew" or v.Name == "Speed Brew" then
+                    Humanoid:EquipTool(v)
+                    v:Activate()
+                end
+            end
+        end,
     })
-
-    Toggle5:OnChanged(function()
-        local Value = Options.Rhythm.Value
-        while Value do
-            game:GetService("ReplicatedStorage").rhythmevent:FireServer("AoeExplosion",0)
-            task.wait()
-        end
-    end)
 end
 
 function Misc()
-    local Toggle = Tabs.Misc:AddToggle("Anti", {
-        Title = "Anti Void", 
-        Default = false
+    local LBE = Tabs.Misc:AddButton({
+        Title = "Leave Bus Early",
+        Description = "Use when spawning bus",
+        Callback = function()
+            game:GetService("ReplicatedStorage").Events.BusJumping:FireServer()
+            repeat
+                task.wait()
+            until LocalPlayer.PlayerGui:FindFirstChild("JumpPrompt")
+            LocalPlayer.PlayerGui.JumpPrompt:Destroy()
+        end,
     })
 
-    Toggle:OnChanged(function()
-        local Value = Options.Anti.Value
-        workspace.AntiVoid.CanCollide = Value
-    end)
+    local BB = Tabs.Misc:AddButton({
+        Title = "Bomb Bus",
+        Description = "Use when spawning bus",
+        Callback = function()
+            repeat
+                task.wait()
+            until LocalPlayer.Backpack:FindFirstChild("Bomb")
 
-    local Toggle2 = Tabs.Misc:AddToggle("Radgoll", {
-        Title = "Anti Radgoll", 
-        Default = false
+            for i,v in ipairs(LocalPlayer.Backpack:GetChildren()) do
+                if v.Name == "Bomb" then
+                    Humanoid:EquipTool(v)
+                    v:Activate(v)
+                end
+            end
+        end,
     })
 
-    Toggle2:OnChanged(function()
-        local Value = Options.Radgoll.Value
-        if Value == true then
-            Humanoid.Health = 0
-            LocalPlayer.CharacterAdded:Connect(function()
-                Character:WaitForChild("Ragdolled").Changed:Connect(function()
-                    if game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == true and Value then
-                        game.Players.LocalPlayer.Character.Torso.Anchored = true
-                        repeat 
-                            task.wait() 
-                        until game.Players.LocalPlayer.Character:WaitForChild("Ragdolled").Value == false
-                        game.Players.LocalPlayer.Character.Torso.Anchored = false
-                    end
-                end)
-            end)
-        end
-    end)
-
-    --[[local Toggle3 = Tabs.Misc:AddToggle("Fly", {
-        Title = "Fly", 
-        Default = false
-    })]]
-
-    --[[Toggle3:OnChanged(function()
-        local Value = Options.Fly.Value
-
-        local Ctrl = {f = 0, b = 0, l = 0, r = 0}
-        local LastCtrl = {f = 0, b = 0, l = 0, r = 0}
-        
-        local Flying = true
-
-        local Speed = 1
-        local MaxSpeed = 5
-
-        local BodyGyro = Instance.new("BodyGyro", Character.Torso)
-        BodyGyro.P = 9e4
-        BodyGyro.MaxTorque = Vector3.new(9e9,9e9,9e9)
-
-        local BodyVelocity = Instance.new("BodyVelocity", Character.Torso)
-        BodyVelocity.Velocity = Vector3.new(0,0.1,0)
-        BodyVelocity.MaxForce = Vector3.new(9e9,9e9,9e9)
-
-        repeat
-            task.wait()
-        until Character:FindFirstChild("Humanoid")
-
-        while Value do
-            repeat task.wait()
-                Humanoid.PlatformStand = true
-                if Ctrl.l + Ctrl.r ~= 0 or Ctrl.f + Ctrl.b ~= 0 then
-                    Speed = Speed
-                    if Speed > MaxSpeed then
-                        Speed = MaxSpeed
-                    end
-                elseif not (Ctrl.l + Ctrl.r ~= 0 or Ctrl.f + Ctrl.b ~= 0) and Speed ~= 0 then
-                    Speed = Speed
-                    if Speed < 0 then
-                        Speed = 1
-                    end
+    local BB = Tabs.Misc:AddButton({
+        Title = "Get Lab Code",
+        Description = "Notify's lab code!",
+        Callback = function()
+            if game.Workspace.Map.CodeBrick.SurfaceGui:FindFirstChild("IMGTemplate") then
+                game.Workspace.Map.CodeBrick.SurfaceGui.IMGTemplate.Name = "1st"
+                game.Workspace.Map.CodeBrick.SurfaceGui.IMGTemplate.Name = "2nd"
+                game.Workspace.Map.CodeBrick.SurfaceGui.IMGTemplate.Name = "3rd"
+                game.Workspace.Map.CodeBrick.SurfaceGui.IMGTemplate.Name = "4th"
                 end
-                if (Ctrl.l + Ctrl.r) ~= 0 or (Ctrl.f + Ctrl.b) ~= 0 then
-                    bv.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (Ctrl.f+Ctrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(Ctrl.l+Ctrl.r,(Ctrl.f+Ctrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*Speed
-                    LastCtrl = {f = Ctrl.f, b = Ctrl.b, l = Ctrl.l, r = Ctrl.r}
-                elseif (Ctrl.l + Ctrl.r) == 0 and (Ctrl.f + Ctrl.b) == 0 and Speed ~= 0 then
-                    BodyVelocity.velocity = ((game.Workspace.CurrentCamera.CoordinateFrame.lookVector * (LastCtrl.f+LastCtrl.b)) + ((game.Workspace.CurrentCamera.CoordinateFrame * CFrame.new(LastCtrl.l+LastCtrl.r,(LastCtrl.f+LastCtrl.b)*.2,0).p) - game.Workspace.CurrentCamera.CoordinateFrame.p))*Speed
-                else
-                    BodyVelocity.velocity = Vector3.new(0,0.1,0)
+                for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
+                                    if v.Name == "1st" then
+                                        if v.Image == "http://www.roblox.com/asset/?id=9648769161" then
+                                    first = "4"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648765536" then
+                                    first = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648762863" then
+                                    first = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648759883" then
+                                    first = "9"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648755440" then
+                                    first = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648752438" then
+                                    first = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648749145" then
+                                    first = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648745618" then
+                                    first = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648742013" then
+                                    first = "7"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648738553" then
+                                    first = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648734698" then
+                                    first = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648730082" then
+                                    first = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648723237" then
+                                    first = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648718450" then
+                                    first = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648715920" then
+                                    first = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648712563" then
+                                    first = "2"
+                                end
+                                    end
+                                end
+                for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
+                                    if v.Name == "2nd" then
+                                        if v.Image == "http://www.roblox.com/asset/?id=9648769161" then
+                                    second = "4"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648765536" then
+                                    second = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648762863" then
+                                    second = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648759883" then
+                                    second = "9"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648755440" then
+                                    second = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648752438" then
+                                    second = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648749145" then
+                                    second = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648745618" then
+                                    second = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648742013" then
+                                    second = "7"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648738553" then
+                                    second = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648734698" then
+                                    second = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648730082" then
+                                    second = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648723237" then
+                                    second = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648718450" then
+                                    second = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648715920" then
+                                    second = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648712563" then
+                                    second = "2"
+                                end
+                                    end
+                                end
+                for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
+                                    if v.Name == "3rd" then
+                                        if v.Image == "http://www.roblox.com/asset/?id=9648769161" then
+                                    third = "4"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648765536" then
+                                    third = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648762863" then
+                                    third = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648759883" then
+                                    third = "9"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648755440" then
+                                    third = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648752438" then
+                                    third = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648749145" then
+                                    third = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648745618" then
+                                    third = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648742013" then
+                                    third = "7"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648738553" then
+                                    third = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648734698" then
+                                    third = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648730082" then
+                                    third = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648723237" then
+                                    third = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648718450" then
+                                    third = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648715920" then
+                                    third = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648712563" then
+                                    third = "2"
+                                end
+                                    end
+                                end
+                for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
+                                    if v.Name == "4th" then
+                                        if v.Image == "http://www.roblox.com/asset/?id=9648769161" then
+                                    fourth = "4"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648765536" then
+                                    fourth = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648762863" then
+                                    fourth = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648759883" then
+                                    fourth = "9"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648755440" then
+                                    fourth = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648752438" then
+                                    fourth = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648749145" then
+                                    fourth = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648745618" then
+                                    fourth = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648742013" then
+                                    fourth = "7"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648738553" then
+                                    fourth = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648734698" then
+                                    fourth = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648730082" then
+                                    fourth = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648723237" then
+                                    fourth = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648718450" then
+                                    fourth = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648715920" then
+                                    fourth = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648712563" then
+                                    fourth = "2"
+                                end
+                                    end
+                                end
+                Code = first..second..third..fourth
+                Notify("Lab Code", "Settings", Code, 1)
+        end,
+    })
+
+    local BB = Tabs.Misc:AddButton({
+        Title = "Get Chain",
+        Description = "Redeem's lab code!",
+        Callback = function()
+            if game.Workspace.Map.CodeBrick.SurfaceGui:FindFirstChild("IMGTemplate") then
+                game.Workspace.Map.CodeBrick.SurfaceGui.IMGTemplate.Name = "1st"
+                game.Workspace.Map.CodeBrick.SurfaceGui.IMGTemplate.Name = "2nd"
+                game.Workspace.Map.CodeBrick.SurfaceGui.IMGTemplate.Name = "3rd"
+                game.Workspace.Map.CodeBrick.SurfaceGui.IMGTemplate.Name = "4th"
                 end
-                BodyGyro.cframe = game.Workspace.CurrentCamera.CoordinateFrame * CFrame.Angles(-math.rad((Ctrl.f+Ctrl.b)*50*Speed/MaxSpeed),0,0)
-            until Value == false
-            Ctrl = {f = 0, b = 0, l = 0, r = 0}
-            LastCtrl = {f = 0, b = 0, l = 0, r = 0}
-            Speed = 0
-            BodyGyro:Destroy()
-            BodyVelocity:Destroy()
-            Humanoid.PlatformStand = false
+                for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
+                                    if v.Name == "1st" then
+                                        if v.Image == "http://www.roblox.com/asset/?id=9648769161" then
+                                    first = "4"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648765536" then
+                                    first = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648762863" then
+                                    first = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648759883" then
+                                    first = "9"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648755440" then
+                                    first = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648752438" then
+                                    first = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648749145" then
+                                    first = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648745618" then
+                                    first = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648742013" then
+                                    first = "7"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648738553" then
+                                    first = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648734698" then
+                                    first = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648730082" then
+                                    first = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648723237" then
+                                    first = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648718450" then
+                                    first = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648715920" then
+                                    first = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648712563" then
+                                    first = "2"
+                                end
+                                    end
+                                end
+                for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
+                                    if v.Name == "2nd" then
+                                        if v.Image == "http://www.roblox.com/asset/?id=9648769161" then
+                                    second = "4"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648765536" then
+                                    second = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648762863" then
+                                    second = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648759883" then
+                                    second = "9"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648755440" then
+                                    second = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648752438" then
+                                    second = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648749145" then
+                                    second = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648745618" then
+                                    second = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648742013" then
+                                    second = "7"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648738553" then
+                                    second = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648734698" then
+                                    second = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648730082" then
+                                    second = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648723237" then
+                                    second = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648718450" then
+                                    second = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648715920" then
+                                    second = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648712563" then
+                                    second = "2"
+                                end
+                                    end
+                                end
+                for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
+                                    if v.Name == "3rd" then
+                                        if v.Image == "http://www.roblox.com/asset/?id=9648769161" then
+                                    third = "4"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648765536" then
+                                    third = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648762863" then
+                                    third = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648759883" then
+                                    third = "9"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648755440" then
+                                    third = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648752438" then
+                                    third = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648749145" then
+                                    third = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648745618" then
+                                    third = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648742013" then
+                                    third = "7"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648738553" then
+                                    third = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648734698" then
+                                    third = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648730082" then
+                                    third = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648723237" then
+                                    third = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648718450" then
+                                    third = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648715920" then
+                                    third = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648712563" then
+                                    third = "2"
+                                end
+                                    end
+                                end
+                for i,v in pairs(game.Workspace.Map.CodeBrick.SurfaceGui:GetChildren()) do
+                                    if v.Name == "4th" then
+                                        if v.Image == "http://www.roblox.com/asset/?id=9648769161" then
+                                    fourth = "4"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648765536" then
+                                    fourth = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648762863" then
+                                    fourth = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648759883" then
+                                    fourth = "9"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648755440" then
+                                    fourth = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648752438" then
+                                    fourth = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648749145" then
+                                    fourth = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648745618" then
+                                    fourth = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648742013" then
+                                    fourth = "7"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648738553" then
+                                    fourth = "8"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648734698" then
+                                    fourth = "2"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648730082" then
+                                    fourth = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648723237" then
+                                    fourth = "3"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648718450" then
+                                    fourth = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648715920" then
+                                    fourth = "6"
+                                elseif v.Image == "http://www.roblox.com/asset/?id=9648712563" then
+                                    fourth = "2"
+                                end
+                                    end
+                                end
+                fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons.Reset.ClickDetector)
+                wait(0.25)
+                fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons[first].ClickDetector)
+                wait(0.25)
+                fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons[second].ClickDetector)
+                wait(0.25)
+                fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons[third].ClickDetector)
+                wait(0.25)
+                fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons[fourth].ClickDetector)
+                wait(0.25)
+                fireclickdetector(game.Workspace.Map.OriginOffice.Door.Keypad.Buttons.Enter.ClickDetector)
+        end,
+    })
+
+    local FE = Tabs.Misc:AddButton({
+        Title = "Free Emotes",
+        Description = "Use Emote (/e L)",
+        Callback = function()
+            Floss = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Floss, game.Players.LocalPlayer.Character.Humanoid)
+            Groove = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Groove, game.Players.LocalPlayer.Character.Humanoid)
+            Headless = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Headless, game.Players.LocalPlayer.Character.Humanoid)
+            Helicopter = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Helicopter, game.Players.LocalPlayer.Character.Humanoid)
+            Kick = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Kick, game.Players.LocalPlayer.Character.Humanoid)
+            L = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.L, game.Players.LocalPlayer.Character.Humanoid)
+            Laugh = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Laugh, game.Players.LocalPlayer.Character.Humanoid)
+            Parker = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Parker, game.Players.LocalPlayer.Character.Humanoid)
+            Spasm = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Spasm, game.Players.LocalPlayer.Character.Humanoid)
+            Thriller = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Thriller, game.Players.LocalPlayer.Character.Humanoid)
+            game.Players.LocalPlayer.Chatted:connect(function(msg)
+            if game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") then
+            Floss = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Floss, game.Players.LocalPlayer.Character.Humanoid)
+            Groove = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Groove, game.Players.LocalPlayer.Character.Humanoid)
+            Headless = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Headless, game.Players.LocalPlayer.Character.Humanoid)
+            Helicopter = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Helicopter, game.Players.LocalPlayer.Character.Humanoid)
+            Kick = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Kick, game.Players.LocalPlayer.Character.Humanoid)
+            L = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.L, game.Players.LocalPlayer.Character.Humanoid)
+            Laugh = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Laugh, game.Players.LocalPlayer.Character.Humanoid)
+            Parker = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Parker, game.Players.LocalPlayer.Character.Humanoid)
+            Spasm = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Spasm, game.Players.LocalPlayer.Character.Humanoid)
+            Thriller = game.Players.LocalPlayer.Character.Humanoid:LoadAnimation(game.ReplicatedStorage.AnimationPack.Thriller, game.Players.LocalPlayer.Character.Humanoid)
+        if string.lower(msg) == "/e floss" then
+            Floss:Play()
+        elseif string.lower(msg) == "/e groove" then
+            Groove:Play()
+        elseif string.lower(msg) == "/e headless" then
+            Headless:Play()
+        elseif string.lower(msg) == "/e helicopter" then
+            Helicopter:Play()
+        elseif string.lower(msg) == "/e kick" then
+            Kick:Play()
+        elseif string.lower(msg) == "/e l" then
+            L:Play()
+        elseif string.lower(msg) == "/e laugh" then
+            Laugh:Play()
+        elseif string.lower(msg) == "/e parker" then
+            Parker:Play()
+        elseif string.lower(msg) == "/e spasm" then
+            Spasm:Play()
+        elseif string.lower(msg) == "/e thriller" then
+            Thriller:Play()
         end
-    end)
-end--]]
+            EP = game.Players.LocalPlayer.Character.HumanoidRootPart.Position
+            end
+        end)
+        game:GetService("RunService").Heartbeat:Connect(function()
+            if EP ~= nil and game.Players.LocalPlayer.Character:FindFirstChild("HumanoidRootPart") and Floss.IsPlaying or Groove.IsPlaying or Headless.IsPlaying or Helicopter.IsPlaying or Kick.IsPlaying or L.IsPlaying or Laugh.IsPlaying or Parker.IsPlaying or Spasm.IsPlaying or Thriller.IsPlaying then
+                Magnitude = (game.Players.LocalPlayer.Character.HumanoidRootPart.Position - EP).Magnitude
+            end
+    
+            if Magnitude > 1 then
+                Floss:Stop(); Groove:Stop(); Headless:Stop(); Helicopter:Stop(); Kick:Stop(); L:Stop(); Laugh:Stop(); Parker:Stop(); Spasm:Stop(); Thriller:Stop()
+            end
+        end)
+        end,
+    })
+end
 
 function Player()
-    local Slider = Tabs.Player:AddSlider("Slider", {
+    local WalkSlider = Tabs.Player:AddSlider("Slider", {
         Title = "Player WalkSpeed",
         Description = "Changes player's walkspeed!",
         Default = 2,
@@ -306,11 +722,11 @@ function Player()
         end
     })
 
-    Slider:OnChanged(function(Value)
+    WalkSlider:OnChanged(function(Value)
         Humanoid.WalkSpeed = Value
     end)
 
-    local Slider2 = Tabs.Player:AddSlider("Slider", {
+    local JumpSlider = Tabs.Player:AddSlider("Slider", {
         Title = "Player JumpPower",
         Description = "Changes player's jump power!",
         Default = 2,
@@ -322,26 +738,50 @@ function Player()
         end
     })
 
-    Slider2:OnChanged(function(Value)
+    JumpSlider:OnChanged(function(Value)
         Humanoid.JumpPower = Value
+    end)
+
+    local GravitySlider = Tabs.Player:AddSlider("Slider", {
+        Title = "Player Gravity",
+        Description = "Changes player's gravity!",
+        Default = 2,
+        Min = 0,
+        Max = 100,
+        Rounding = 1,
+        Callback = function(Value)
+            workspace.Gravity = Value
+        end
+    })
+
+    GravitySlider:OnChanged(function(Value)
+        workspace.Gravity = Value
     end)
 end
 
+function Settings()
+    SaveManager:SetLibrary(Fluent)
+    InterfaceManager:SetLibrary(Fluent)
+    SaveManager:IgnoreThemeSettings()
+    SaveManager:SetIgnoreIndexes({})
+    InterfaceManager:SetFolder("FluentScriptHub")
+    SaveManager:SetFolder("FluentScriptHub/Slap_Royale")
+    InterfaceManager:BuildInterfaceSection(Tabs.Settings)
+    SaveManager:BuildConfigSection(Tabs.Settings)
+    SaveManager:LoadAutoloadConfig()
+end
+
+--// Task
+
 do
-    Home()
-    Combat()
-    Misc()
-    Player()
+    if game.PlaceId == 13772394625 then
+        Home()
+        Combat()
+        Misc()
+        Player()
+        Settings()
+        Furry()
+    end
 end
 
 Window:SelectTab(1)
-
-SaveManager:SetLibrary(Fluent)
-InterfaceManager:SetLibrary(Fluent)
-SaveManager:IgnoreThemeSettings()
-SaveManager:SetIgnoreIndexes({})
-InterfaceManager:SetFolder("FluentScriptHub")
-SaveManager:SetFolder("FluentScriptHub/specific-game")
-InterfaceManager:BuildInterfaceSection(Tabs.Settings)
-SaveManager:BuildConfigSection(Tabs.Settings)
-SaveManager:LoadAutoloadConfig()
